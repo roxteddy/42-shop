@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+if (isset($_POST["submit"]) and $_POST["submit"] === "login")
+	include "src/check_login.php";
 ?>
 
 <html>
@@ -10,7 +13,7 @@ session_start();
 		<?php include "src/banner.php"; ?>
 		<?php include "src/menu.php"; ?>
 		<?php
-			if (!isset($_SESSION["login"]) or $_SESSION["login"] === "")
+			if (!isset($_SESSION["id"]) or $_SESSION["id"] === "")
 				include "src/login0.php";
 			else
 				include "src/login1.php";
