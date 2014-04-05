@@ -10,7 +10,7 @@ session_start();
 		<?php include "src/banner.php"; ?>
 		<?php include "src/menu.php"; ?>
 		<?php
-			if (!isdef($_SESSION["login"]) or $_SESSION["login"] === "")
+			if (!isset($_SESSION["login"]) or $_SESSION["login"] === "")
 				include "src/login0.php";
 			else
 				include "src/login1.php";
