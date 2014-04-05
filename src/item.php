@@ -1,9 +1,9 @@
 <?PHP
-function createitem(&$tab, $name, $description, $stock, $price)
+function createitem(&$tab, $name, $description, $img, $stock, $price)
 {
 	if (is_numeric($stock))
 	{
-		$tab[] = Array('name' => $name, 'description' => $description, 'stock' => $stock, 'price' => $price);
+		$tab[] = Array('name' => $name, 'description' => $description, 'img' => $img, 'stock' => $stock, 'price' => $price);
 		return TRUE;
 	}
 	return FALSE;
@@ -15,7 +15,7 @@ function additem(&$tab, $id)
 	return TRUE;
 }
 
-function modifyitem(&$tab, $id, $name, $description, $stock, $price)
+function modifyitem(&$tab, $id, $name, $description, $img, $stock, $price)
 {
 	if (isset($tab[$id]) && is_numeric($stock) && is_numeric($price))
 	{
@@ -23,6 +23,8 @@ function modifyitem(&$tab, $id, $name, $description, $stock, $price)
 			$tab[$id]['name'] = $name;
 		if ($description != '')
 			$tab[$id]['description'] = $description;
+		if ($img != '' && file_exists($img))
+			$tab[$id]['image'] = $img;
 		if ($description != '')
 			$tab[$id]['stock'] = $stock;
 		if ($description != '')
@@ -58,7 +60,7 @@ function getitemtab()
 		while (($data = fgetcsv($handle, 1000, ',')) !== FALSE)
 		{
 			if ($data[0] != 'id')
-				$tab[$data[0]] = Array('name' => $data[1], 'description' => $data[2], 'stock' => $data[3], 'price' => $data[4]);
+				$tab[$data[0]] = Array('name' => $data[1], 'description' => $data[2], 'img' => $data[3], 'stock' => $data[4], 'price' => $data[5]);
 		}
 		fclose($handle);
 		return $tab;
@@ -72,7 +74,7 @@ function saveitemtab($tab)
 	if (($handle = fopen($filename, 'w')) !== FALSE)
 	{
 		foreach ($tab as $key => $value)
-			fputcsv($handle, Array('id' => $key, 'name' => $value['name'], 'description' => $value['description'], 'stock' => $value['stock'], 'price' => $value['price']));
+			fputcsv($handle, Array('id' => $key, 'name' => $value['name'], 'description' => $value['description'], 'img' => $value['img'], 'stock' => $value['stock'], 'price' => $value['price']));
 		fclose($handle);
 		return TRUE;
 	}
@@ -82,19 +84,18 @@ function saveitemtab($tab)
 function printitemtab($tab)
 {
 	foreach ($tab as $key => $value)
-		echo 'id='.$key.' name='.$value['name'].' description='.$value['description'].' stock='.$value['stock'].' price='.$value['price'];
+		echo 'id='.$key.' name='.$value['name'].' description='.$value['description'].'img='.$value['img'].'stock='.$value['stock'].' price='.$value['price'];
 }
 
 function itemtest()
 {
 	if (($tab = getitemtab()) !== FALSE)
 	{
-		createitem($tab, 'salut', 'ceci est un test ceci est un test lorem ipsum blabla', '10', '39.30');
+		createitem($tab, 'salut', 'ceci est un test ceci est un test lorem ipsum blabla', 'img', '10', '39.30');
 		printitemtab($tab);
 		print_r($tab);
 		saveitemtab($tab);
 	}
 }
-
 itemtest();
 ?>
