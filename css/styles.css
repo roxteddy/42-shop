@@ -45,3 +45,16 @@ span.welcome {
 			 font-size: 20px;
 			 color: green;
 			 }
+div.game	{
+			display: inline-block;
+			}
+div.left
+			{
+			float: left;
+			width: 200px
+			}
+div.right
+			{
+			width:800px;
+			float: left;
+			}
