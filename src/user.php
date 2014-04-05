@@ -33,7 +33,7 @@ function removeuser(&$tab, $login)
 
 function getusertab()
 {
-	$filename = ('../csv/user.csv');
+	$filename = ('csv/user.csv');
 	if (($handle = fopen($filename, 'r')) !== FALSE)
 	{
 		while (($data = fgetcsv($handle, 1000, ',')) !== FALSE)
@@ -49,7 +49,7 @@ function getusertab()
 
 function saveusertab($tab)
 {
-	$filename = ('../csv/user.csv');
+	$filename = ('csv/user.csv');
 	if (($handle = fopen($filename, 'w')) !== FALSE)
 	{
 		foreach ($tab as $key => $value)
