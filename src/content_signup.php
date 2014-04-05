@@ -1,15 +1,11 @@
 <?php
-
+Include('user.php');
 if (isset($_POST["submit"]) and $_POST["submit"] === "signup")
 {
-	if (file_exists("private/passwd"))
-		$passwd = unserialize(file_get_contents("private/passwd"));
-	else
-		$passwd = array();
-	//check login
+	$tab = getusertab();
 	if (!isset($_POST["login"]) or $_POST["login"] === "")
 		echo "ERROR: please enter a login<br />";
-	else if (isset($passwd[$_POST["login"]]))
+	else if (isset($tab[$_POST["login"]]))
 		echo "ERROR: login already used<br />";
 	else if (strlen($_POST["password"]) < 8)
 		echo "ERROR: password must be 8 characters long or more<br />";
@@ -17,10 +13,8 @@ if (isset($_POST["submit"]) and $_POST["submit"] === "signup")
 		echo "ERROR: passwords do not match<br />";
 	else
 	{
-		$passwd[$_POST["login"]] = hash("whirlpool", $_POST["password"]);
-		if (!file_exists("private"))
-			mkdir("private");
-		file_put_contents("private/passwd", serialize($passwd));
+		createuser($tab, $_POST["login"], hash("whirlpool", $_POST["password"]), '0');
+		saveusertab($tab);
 		echo "SIGNUP OK: now you can login<br />";
 	}
 }
