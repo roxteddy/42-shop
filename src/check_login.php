@@ -8,5 +8,5 @@ else if (!isset($passwd[$_POST["login"]]))
 else if (hash("whirlpool", $_POST["password"]) != $passwd[$_POST["login"]])
 	echo "LOGIN ERROR: bad password.";
 else
-	$_SESSION["id"] = hash($_POST["login"].":".$_POST["password"]);
+	$_SESSION["id"] = hash("whirlpool", $_POST["login"].":".$_POST["password"]);
 ?>

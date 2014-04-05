@@ -1,8 +1,10 @@
 <?php
 session_start();
 
-if (isset($_POST["submit"]) and $_POST["submit"] === "login")
+if (isset($_POST["submit"]) and $_POST["submit"] === "signin")
 	include "src/check_login.php";
+if (isset($_POST["submit"]) and $_POST["submit"] === "signout")
+	$_SESSION["id"] = "";
 ?>
 
 <html>
