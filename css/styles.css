@@ -21,6 +21,11 @@ a.banner	{
             height: 50px;
             margin: 0 auto 0 auto;
 			}
+div.cat		{
+			margin: 10 150 10 auto;
+			border:1 solid yellow;
+			display: inline-block;
+			}
 #login      {
             border:1 solid black;
             background-color: #eeeeee;
