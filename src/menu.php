@@ -1,6 +1,7 @@
 <div id="menu">
-<a href="index.php?page=shop&cat=action"><div class="cat">Action</div></a>
-<a href="index.php?page=shop&cat=adventure"><div class="cat">Adventure</div></a>
-<a href="index.php?page=shop&cat=puzzle"><div class="cat">Puzzle</div></a>
-<a href="index.php?page=shop&cat=strategie"><div class="cat">Strategie</div></a>
+<?php
+$cat = getcategorytab();
+foreach ($cat as $val)
+	echo "<a href=\"index.php?page=shop&cat=".strtolower($val)."\"><div class=\"cat\">".$val."</div></a>";
+?>
 </div>

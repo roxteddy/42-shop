@@ -1,4 +1,7 @@
 <?php
+include "src/category.php";
+include "src/item.php";
+include "src/item_category.php";
 session_start();
 
 if (isset($_POST["submit"]) and $_POST["submit"] === "signin")

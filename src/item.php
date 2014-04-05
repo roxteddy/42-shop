@@ -54,7 +54,7 @@ function getitemname($tab, $id)
 
 function getitemtab()
 {
-	$filename = ('../csv/item.csv');
+	$filename = ('csv/item.csv');
 	if (($handle = fopen($filename, 'r')) !== FALSE)
 	{
 		while (($data = fgetcsv($handle, 1000, ',')) !== FALSE)
@@ -70,7 +70,7 @@ function getitemtab()
 
 function saveitemtab($tab)
 {
-	$filename = ('../csv/item.csv');
+	$filename = ('csv/item.csv');
 	if (($handle = fopen($filename, 'w')) !== FALSE)
 	{
 		foreach ($tab as $key => $value)
@@ -97,5 +97,4 @@ function itemtest()
 		saveitemtab($tab);
 	}
 }
-itemtest();
 ?>

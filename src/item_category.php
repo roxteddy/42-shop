@@ -10,7 +10,7 @@ function createitemcategory(&$tab, $iditem, $idcategory)
 		}
 		$tab[] = Array('item' => $iditem, 'category' => $idcategory);
 	}
-	return TRUE;
+return TRUE;
 }
 
 function removeallitemid(&$tab, $iditem)
@@ -59,7 +59,7 @@ function getallcategoryid(&$tab, $iditem)
 
 function getitemcategorytab()
 {
-	$filename = ('../csv/item_category.csv');
+	$filename = ('csv/item_category.csv');
 	if (($handle = fopen($filename, 'r')) !== FALSE)
 	{
 		while (($data = fgetcsv($handle, 1000, ',')) !== FALSE)
@@ -75,7 +75,7 @@ function getitemcategorytab()
 
 function saveitemcategorytab($tab)
 {
-	$filename = ('../csv/item_category.csv');
+	$filename = ('csv/item_category.csv');
 	if (($handle = fopen($filename, 'w')) !== FALSE)
 	{
 		foreach ($tab as $key => $value)
