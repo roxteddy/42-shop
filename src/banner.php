@@ -1,3 +1,5 @@
-<div id="banner">
-	<a href="index.php">banner</a>
-</div>
+<a class="banner" href="index.php">
+	<div id="banner">
+	 - My First E-Shop -
+	</div>
+</a>
