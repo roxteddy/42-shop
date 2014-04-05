@@ -1,11 +1,6 @@
 <html>
 	<head>
-		<style>
-#banner		{border:1 solid black;}
-#menu		{border:1 solid black;}
-#login		{border:1 solid black;}
-#content	{border:1 solid black;}
-		</style>
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
 	</head>
 	<body>
 <?php include "src/banner.php"; ?>
