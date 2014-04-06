@@ -36,7 +36,7 @@ function getusertab()
 	$filename = ('csv/user.csv');
 	if (($handle = fopen($filename, 'r')) !== FALSE)
 	{
-		while (($data = fgetcsv($handle, 1000, ',')) !== FALSE)
+		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE)
 			$tab[$data[0]] = Array('password' => $data[1], 'admin' => $data[2]);
 		fclose($handle);
 		return $tab;
@@ -52,7 +52,7 @@ function saveusertab($tab)
 	if (($handle = fopen($filename, 'w')) !== FALSE)
 	{
 		foreach ($tab as $key => $value)
-			fputcsv($handle, Array('login' => $key, 'password' => $value['password'], 'admin' => $value['admin']));
+			fputcsv($handle, Array('login' => $key, 'password' => $value['password'], 'admin' => $value['admin']), ';');
 		fclose($handle);
 		return TRUE;
 	}
