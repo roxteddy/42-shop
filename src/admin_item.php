@@ -82,7 +82,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != 0)
 		'<form method ="post" action="admin_item.php">',
 		'Name: <input name="name" value="Enter name" /><br />',
 		'Img-url: <input name="img-url" value="Enter image url" /><br />',
-		'Description: <br /><textarea rows="4" cols="40" name="description" value="Enter description"></textarea><br />',
+		'Description: <br /><textarea rows="4" cols="40" name="description" value="">Enter description</textarea><br />',
 		'Price: <input name="price" type="number" value="0" /><br />',
 		'Stock: <input name="stock" type="number" value="0" /><br />',
 		'Categories:<br />';
@@ -99,7 +99,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != 0)
 			'<form method ="post" action="admin_item.php">',
 			'Name: <input name="name" value="'.$games[$id]['name'].'" /><br />',
 			'Img-url: <input name="img-url" value="'.$games[$id]['img'].'" /><br />',
-			'Description: <br /><textarea rows="4" cols="40" name="description" value="'.$games[$id]['description'].'"></textarea><br />',
+			'Description: <br /><textarea rows="4" cols="40" name="description" value="">'.$games[$id]['description'].'</textarea><br />',
 			'Price: <input name="price" type="number" value="'.$games[$id]['price'].'" /><br />',
 			'Stock: <input name="stock" type="number" value="'.$games[$id]['stock'].'" /><br />',
 			'Categories:<br />';
