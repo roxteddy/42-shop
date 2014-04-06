@@ -11,10 +11,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] === "signout")
 if (isset($_POST["submit"]) and $_POST["submit"] === "addtocart")
 	include "src/addtocart.php";
 if (isset($_GET["cat"]))
-{
     $cat = $_GET["cat"];
-    $ids = getallitemid(getitemcategorytab(), $_GET["cat"]);
-}
 else
     $cat = 0;
 ?>

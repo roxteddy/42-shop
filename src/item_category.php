@@ -46,7 +46,7 @@ function itemisincategory(&$tab, $iditem, $idcategory)
 function getallitemid(&$tab, $idcategory)
 {
 	$res = Array();
-	if ($idcategory == '')
+	if ($idcategory == 0)
 	{
 		foreach ($tab as $key => $value)
 			$res[] = (Integer)$value['item'];
