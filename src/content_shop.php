@@ -1,5 +1,8 @@
 <?php
-$ids = getallitemid(getitemcategorytab(), $_GET["cat"]);
+if (isset($_GET["tab"]))
+	$ids = getallitemid(getitemcategorytab(), $_GET["cat"]);
+else
+	$ids = getallitemid(getitemcategorytab(), 0);
 $games = getitemtab();
 #foreach ($ids as $id)
 #{

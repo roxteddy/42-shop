@@ -7,4 +7,5 @@
 	<form method="get" action="index.php">
 		<input type="hidden" name="page" value="signup">
 		<input id="signup" type="submit" value="Signup">
+	</form>
 </div>
