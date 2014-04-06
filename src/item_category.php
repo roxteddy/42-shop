@@ -10,7 +10,7 @@ function createitemcategory(&$tab, $iditem, $idcategory)
 		}
 		$tab[] = Array('item' => $iditem, 'category' => $idcategory);
 	}
-return TRUE;
+	return TRUE;
 }
 
 function removeallitemid(&$tab, $iditem)
@@ -31,9 +31,27 @@ function removeallcategoryid(&$tab, $idcategory)
 			unset($tab[$key]);
 }
 
+function itemisincategory(&$tab, $iditem, $idcategory)
+{
+	if (!is_numeric($idcategory) || !is_numeric($iditem))
+		return FALSE;
+	foreach ($tab as $key => &$value)
+	{
+		if ($iditem == $value['item'] && $idcategory == $value['category'])
+			return TRUE;
+	}
+	return FALSE;
+}
+
 function getallitemid(&$tab, $idcategory)
 {
 	$res = Array();
+	if ($idcategory == '')
+	{
+		foreach ($tab as $key => $value)
+			$res[] = (Integer)$value['item'];
+		return $res;
+	}
 	if (!is_numeric($idcategory))
 		return FALSE;
 	foreach ($tab as $key => $value)
@@ -47,6 +65,12 @@ function getallitemid(&$tab, $idcategory)
 function getallcategoryid(&$tab, $iditem)
 {
 	$res = Array();
+	if ($iditem == '')
+	{
+		foreach ($tab as $key => $value)
+			$res[] = (Integer)$value['item'];
+		return $res;
+	}
 	if (!is_numeric($iditem))
 		return FALSE;
 	foreach ($tab as $key => $value)

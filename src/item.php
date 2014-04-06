@@ -4,6 +4,9 @@ function createitem(&$tab, $name, $description, $img, $stock, $price)
 	if (is_numeric($stock))
 	{
 		$tab[] = Array('name' => $name, 'description' => $description, 'img' => $img, 'stock' => $stock, 'price' => $price);
+		foreach ($tab as $key => $value)
+			if ($value['name'] == $name)
+				return $key;
 		return TRUE;
 	}
 	return FALSE;
@@ -23,13 +26,13 @@ function modifyitem(&$tab, $id, $name, $description, $img, $stock, $price)
 			$tab[$id]['name'] = $name;
 		if ($description != '')
 			$tab[$id]['description'] = $description;
-		if ($img != '' && file_exists($img))
-			$tab[$id]['image'] = $img;
+		if ($img != '')
+			$tab[$id]['img'] = $img;
 		if ($description != '')
 			$tab[$id]['stock'] = $stock;
 		if ($description != '')
 			$tab[$id]['price'] = $price;
-		return TRUE;
+		return $tab[$id];
 	}
 	return FALSE;
 }

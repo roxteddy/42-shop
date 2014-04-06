@@ -1,11 +1,11 @@
 <?PHP
-function createcategory($name, &$tab)
+function createcategory(&$tab, $name)
 {
 	$tab[] = $name;
 	return TRUE;
 }
 
-function modifycategory($id, $name, &$tab)
+function modifycategory(&$tab, $id, $name)
 {
 	if (isset($tab[$id]))
 	{
@@ -15,7 +15,7 @@ function modifycategory($id, $name, &$tab)
 	return FALSE;
 }
 
-function removecategory($id, &$tab)
+function removecategory(&$tab, $id)
 {
 	if (isset($tab[$id]))
 	{
