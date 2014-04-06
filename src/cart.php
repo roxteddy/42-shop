@@ -14,6 +14,7 @@
 		 }
 		 echo "<p>Total = $total</p>";
 	 }
+	print_r(getpageurl());
 ?>
 	 </div>
 </div>
