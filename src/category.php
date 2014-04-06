@@ -27,6 +27,8 @@ function removecategory(&$tab, $id)
 
 function getcategoryname($id, $tab)
 {
+	if ($id == 0)
+		return "All Games";
 	if (isset($tab[$id]) && $tab[$id] != '')
 		return $tab[$id];
 	return FALSE;
