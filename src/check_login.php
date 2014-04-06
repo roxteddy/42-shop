@@ -11,6 +11,6 @@ else if (hash("whirlpool", $_POST["password"]) != $tab[$_POST["login"]]['passwor
 else
 {
 	$_SESSION["id"] = $_POST["login"];
-	$_SESSION['admin'] = $tab[$_POST['login']];
+	$_SESSION['admin'] = $tab[$_POST['login']]['admin'];
 }
 ?>
