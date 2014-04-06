@@ -38,7 +38,7 @@ function getcategorytab()
 	$filename = ('csv/category.csv');
 	if (($handle = fopen($filename, 'r')) !== FALSE)
 	{
-		while (($data = fgetcsv($handle, 1000, ',')) !== FALSE)
+		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE)
 		{
 			if ($data[0] != 'id')
 				$tab[$data[0]] = $data[1];
@@ -55,7 +55,7 @@ function savecategorytab($tab)
 	if (($handle = fopen($filename, 'w')) !== FALSE)
 	{
 		foreach ($tab as $key => $value)
-			fputcsv($handle, Array('id' => $key, 'name' => $value));
+			fputcsv($handle, Array('id' => $key, 'name' => $value), ";");
 		fclose($handle);
 		return TRUE;
 	}

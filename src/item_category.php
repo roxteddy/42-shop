@@ -86,7 +86,7 @@ function getitemcategorytab()
 	$filename = ('csv/item_category.csv');
 	if (($handle = fopen($filename, 'r')) !== FALSE)
 	{
-		while (($data = fgetcsv($handle, 1000, ',')) !== FALSE)
+		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE)
 		{
 			if ($data[0] != 'id')
 				$tab[] = Array('item' => (Integer)$data[0], 'category' => (Integer)$data[1]);
@@ -103,7 +103,7 @@ function saveitemcategorytab($tab)
 	if (($handle = fopen($filename, 'w')) !== FALSE)
 	{
 		foreach ($tab as $key => $value)
-			fputcsv($handle, Array('item' => (Integer)$value['item'], 'name' => (Integer)$value['category']));
+			fputcsv($handle, Array('item' => (Integer)$value['item'], 'name' => (Integer)$value['category']), ';');
 		fclose($handle);
 		return TRUE;
 	}

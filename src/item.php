@@ -60,7 +60,7 @@ function getitemtab()
 	$filename = ('csv/item.csv');
 	if (($handle = fopen($filename, 'r')) !== FALSE)
 	{
-		while (($data = fgetcsv($handle, 1000, ',')) !== FALSE)
+		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE)
 		{
 			if ($data[0] != 'id')
 				$tab[$data[0]] = Array('name' => $data[1], 'description' => $data[2], 'img' => $data[3], 'stock' => $data[4], 'price' => $data[5]);
@@ -77,7 +77,7 @@ function saveitemtab($tab)
 	if (($handle = fopen($filename, 'w')) !== FALSE)
 	{
 		foreach ($tab as $key => $value)
-			fputcsv($handle, Array('id' => $key, 'name' => $value['name'], 'description' => $value['description'], 'img' => $value['img'], 'stock' => $value['stock'], 'price' => $value['price']));
+			fputcsv($handle, Array('id' => $key, 'name' => $value['name'], 'description' => $value['description'], 'img' => $value['img'], 'stock' => $value['stock'], 'price' => $value['price']), ';');
 		fclose($handle);
 		return TRUE;
 	}
