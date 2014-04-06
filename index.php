@@ -18,7 +18,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] === "addtocart")
 	</head>
 	<body>
 		<?php include "src/banner.php"; ?>
-		<?php include "src/menu.php"; ?>
+	<!-- <?php include "src/menu.php"; ?> -->
 		<?php include "src/content.php"; ?>
 	</body>
 </html>

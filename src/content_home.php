@@ -1,1 +1,0 @@
-<span class="welcome">Ceci est la homepage</span>
