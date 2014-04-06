@@ -32,17 +32,15 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != 0)
 		}
 	}
 	echo '<div class="category">',
-		'<div class="left">',
 		'<form method ="post" action="admin_category.php">',
 		'Name: <input name="name" value="Enter name" /><br />',
 		'<input type="submit" name="submitadd" value="Add">',
 		'</form><br />',
 		'</div>',
-		'</div>';
+		'<br />';
 	foreach ($categories as $id => $value)
 	{
 		echo '<div class="category">',
-			'<div class="left">',
 			'<form method ="post" action="admin_category.php">',
 			'Name: <input name="name" value="'.$categories[$id].'" /><br />',
 			'<input type="submit" name="submitmodify" value="Modify">',
@@ -50,7 +48,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != 0)
 			'<input type="hidden" name="id" value="'.$id.'" />',
 			'</form><br />',
 			'</div>',
-			'</div>';
+			'<br />';
 	}
 }
 ?>

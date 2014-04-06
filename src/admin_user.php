@@ -43,7 +43,6 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != 0)
 		}
 	}
 	echo '<div class="game">',
-		'<div class="left">',
 		'<form method ="post" action="admin_user.php">',
 		'Login: <input name="login" value="Enter login" /><br />',
 		'Password: <input type="password" name="password" value="" /><br />',
@@ -55,11 +54,10 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != 0)
 		'<input type="submit" name="submitadd" value="Add">',
 		'</form><br />',
 		'</div>',
-		'</div>';
+		'<br />';
 	foreach ($tab as $id => $value)
 	{
 		echo '<div class="game">',
-			'<div class="left">',
 			'<form method ="post" action="admin_user.php">',
 			'Login: '.$id.'<br />',
 			'Password: <input type="password" name="password" value="" /><br />',
@@ -86,7 +84,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != 0)
 			'<input type="submit" name="submitdelete" value="Delete">',
 			'</form><br />',
 			'</div>',
-			'</div>';
+			'<br />';
 	}
 }
 ?>
