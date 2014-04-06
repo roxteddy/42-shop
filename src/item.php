@@ -4,6 +4,9 @@ function createitem(&$tab, $name, $description, $img, $stock, $price)
 	if (is_numeric($stock))
 	{
 		$tab[] = Array('name' => $name, 'description' => $description, 'img' => $img, 'stock' => $stock, 'price' => $price);
+		foreach ($tab as $key => $value)
+			if ($value['name'] == $name)
+				return $key;
 		return TRUE;
 	}
 	return FALSE;
@@ -23,13 +26,13 @@ function modifyitem(&$tab, $id, $name, $description, $img, $stock, $price)
 			$tab[$id]['name'] = $name;
 		if ($description != '')
 			$tab[$id]['description'] = $description;
-		if ($img != '' && file_exists($img))
-			$tab[$id]['image'] = $img;
+		if ($img != '')
+			$tab[$id]['img'] = $img;
 		if ($description != '')
 			$tab[$id]['stock'] = $stock;
 		if ($description != '')
 			$tab[$id]['price'] = $price;
-		return TRUE;
+		return $tab[$id];
 	}
 	return FALSE;
 }
@@ -57,7 +60,7 @@ function getitemtab()
 	$filename = ('csv/item.csv');
 	if (($handle = fopen($filename, 'r')) !== FALSE)
 	{
-		while (($data = fgetcsv($handle, 1000, ',')) !== FALSE)
+		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE)
 		{
 			if ($data[0] != 'id')
 				$tab[$data[0]] = Array('name' => $data[1], 'description' => $data[2], 'img' => $data[3], 'stock' => $data[4], 'price' => $data[5]);
@@ -74,7 +77,7 @@ function saveitemtab($tab)
 	if (($handle = fopen($filename, 'w')) !== FALSE)
 	{
 		foreach ($tab as $key => $value)
-			fputcsv($handle, Array('id' => $key, 'name' => $value['name'], 'description' => $value['description'], 'img' => $value['img'], 'stock' => $value['stock'], 'price' => $value['price']));
+			fputcsv($handle, Array('id' => $key, 'name' => $value['name'], 'description' => $value['description'], 'img' => $value['img'], 'stock' => $value['stock'], 'price' => $value['price']), ';');
 		fclose($handle);
 		return TRUE;
 	}
