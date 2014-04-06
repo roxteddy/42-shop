@@ -1,18 +1,49 @@
+body		{
+			background-color: black;
+			padding: 0;
+			margin: 0;
+			}
 #banner     {
 			border:1 solid black;
-			background-color: #cccccc;
-			width: 1000px;
-			height: 100px;
-			margin: 10 auto 0 auto;
-			font-size: 20px;
+			background-color: #3d424c;
+			width: 100%;
+			height: 50px;
+			margin: 0 auto 20 auto;
+			color: white;
 			text-align: center;
 			}
-#banner:hover {
-			background-color: yellow;
+#login0      {
+			float: right;
+			width: 190px;
+			height: 100%;
+            margin: 0 auto 0 auto;
+			text-align: left;
+            }
+#login1     {
+            float: right;
+            height: 100%;
+            margin: 0 10 0 10;
+			text-align: center;
+            }
+#signin		{
+			border: 1px solid #AEEE00;
+            background-color: #3d424c;
+			color: #AEEE00;
+			width: 50px;
 			}
-a.banner	{
-			text-decoration: none;
+#signout	{
+			border: 1px solid red;
+            background-color: #3d424c;
 			color: red;
+			}
+#signup		{
+			border: 1px solid #01B0F0;
+            background-color: #3d424c;
+			color: #01B0F0;
+			width: 50px;
+			position: relative;
+			top: -40px;
+			left: 131px;
 			}
 #menu		{
 			border:1 solid black;
@@ -25,13 +56,6 @@ div.cat		{
 			border:1 solid yellow;
 			display: inline-block;
 			}
-#login      {
-            border:1 solid black;
-            background-color: #eeeeee;
-            width: 1000px;
-            height: 100px;
-            margin: 0 auto 0 auto;
-            }
 #content    {
             border:1 solid black;
             background-color: #ffffff;

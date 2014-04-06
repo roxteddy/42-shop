@@ -1,9 +1,10 @@
-<div id="login">
-	<span>Welcome visitor</span>
+<div id="login0">
 	<form method="post" action="index.php">
-		<input type="text" name="login" />
-		<input type="password" name="password" />
-		<input type="submit" name="submit" value="signin" />
+		 <input id="user" type="text" name="login" placeholder="Login" />
+		 <input id="signin" type="submit" name="submit" value="signin" /><br />
+		 <input id="pass" type="password" name="password" placeholder="Password" />
 	</form>
-		<a href="index.php?page=signup"><span>SIGN UP</span></a>
+	<form method="get" action="index.php">
+		<input type="hidden" name="page" value="signup">
+		<input id="signup" type="submit" value="Signup">
 </div>

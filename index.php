@@ -20,12 +20,6 @@ print_r($_POST);
 	<body>
 		<?php include "src/banner.php"; ?>
 		<?php include "src/menu.php"; ?>
-		<?php
-			if (!isset($_SESSION["id"]) or $_SESSION["id"] === "")
-				include "src/login0.php";
-			else
-				include "src/login1.php";
-		?>
 		<?php include "src/content.php"; ?>
 	</body>
 </html>

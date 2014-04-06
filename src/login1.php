@@ -1,6 +1,6 @@
-<div id="login">
-	<span>Salut <?php echo $_SESSION["id"] ?> !</span>
+<div id="login1">
+	<span><?php echo $_SESSION["id"] ?> </span>
 	<form method="post">
-		<input type="submit" name="submit" value="signout" />
+		<input id="signout" type="submit" name="submit" value="signout" />
 	</form>
 </div>
