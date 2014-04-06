@@ -8,13 +8,21 @@
 		 $total = 0;
 		 foreach($_SESSION["cart"] as $id => $nb)
 		 {
+		 $plus = '<form method="post" action="'.getpageurl().'">
+              <input type="hidden" name="id" value="'.$id.'" />
+              <input id="plus" type="submit" name="submit" value="+" />
+         </form>';
+		 $minus = '<form method="post" action="'.getpageurl().'">
+              <input type="hidden" name="id" value="'.$id.'" />
+              <input id="plus" type="submit" name="submit" value="-" />
+         </form>';
 			 $price = $nb * $items[$id]["price"];
 			 $total += $price;
-			 echo "<p>".getitemname($items, $id)." x ".$nb." = ".$price."</p>";
+			 if ($nb > 0)
+				 echo "<p>".getitemname($items, $id)." ".$plus.$nb.$minus." = ".$price."</p>";
 		 }
 		 echo "<p>Total = $total</p>";
 	 }
-	print_r(getpageurl());
 ?>
 	 </div>
 </div>
