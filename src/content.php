@@ -1,9 +1,9 @@
 <div id="content">
-	 <?php    if ($_SESSION["admin"] > 0)
+	 <?php    if ($_SESSION["admin"] > 0 and isset($_SESSION["login"]))
      echo '<a href="index.php?page=admin1">ADMIN</a>'; ?>
- <?php    if ($_SESSION["admin"] > 0)
+ <?php    if ($_SESSION["admin"] > 0 and isset($_SESSION["login"]))
 echo '<a href="index.php?page=admin2">ADMIN2</a>'; ?>
-<?php    if ($_SESSION["admin"] > 0)
+<?php    if ($_SESSION["admin"] > 0 and isset($_SESSION["login"]))
 echo '<a href="index.php?page=admin3">ADMIN3</a>'; ?>
 <?php
 if (isset($_GET["page"]) and $_GET["page"] === "signup")
