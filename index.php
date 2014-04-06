@@ -9,8 +9,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] === "signin")
 if (isset($_POST["submit"]) and $_POST["submit"] === "signout")
 	$_SESSION["id"] = "";
 if (isset($_POST["submit"]) and $_POST["submit"] === "addtocart")
-#	include "src/addtocart.php";
-print_r($_POST);
+	include "src/addtocart.php";
 ?>
 
 <html>
